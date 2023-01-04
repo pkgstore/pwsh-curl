@@ -1,0 +1,25 @@
+function cURL-Download() {
+  <#
+    .SYNOPSIS
+    .DESCRIPTION
+  #>
+
+  [CmdletBinding()]
+
+  Param(
+    [Parameter(Mandatory, HelpMessage="URL")]
+    [Alias('URL', 'U')]
+    [string[]]${URLs}
+  )
+
+  ${cURL} = "${PSScriptRoot}\curl.exe"
+
+  if ( -not ( Test-Path -Path "${cURL}" -PathType "Leaf" ) ) {
+    Write-Error -Message "'curl.exe' not found!" -ErrorAction "Stop"
+  }
+
+  ForEach ( ${URL} in "${URLs}" ) {
+    ${CMD} = @( "-L" "-O" "-C" "${URL}" )
+    & "${cURL}" ${CMD}
+  }
+}
