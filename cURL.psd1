@@ -7,7 +7,7 @@
   Copyright = '(c) 2023 v77 Development. All rights reserved.'
   Description = ''
   PowerShellVersion = '7.1'
-  FunctionsToExport = @('')
+  FunctionsToExport = @('Get-WebResource')
   CmdletsToExport = @()
   AliasesToExport = @()
 }

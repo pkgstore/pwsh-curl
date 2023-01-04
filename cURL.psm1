@@ -1,4 +1,4 @@
-function cURL-Download() {
+function Get-WebResource() {
   <#
     .SYNOPSIS
     .DESCRIPTION
@@ -19,7 +19,7 @@ function cURL-Download() {
   }
 
   ForEach ( ${URL} in "${URLs}" ) {
-    ${CMD} = @( "-L" "-O" "-C" "${URL}" )
+    ${CMD} = @( "-L", "-O", "${URL}" )
     & "${cURL}" ${CMD}
   }
 }
