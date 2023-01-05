@@ -7,7 +7,7 @@ function Get-WebResource() {
   [CmdletBinding()]
 
   Param(
-    [Parameter(Mandatory, HelpMessage="URL")]
+    [Parameter(Mandatory)]
     [Alias('URL', 'U')]
     [string[]]${URLs}
   )
