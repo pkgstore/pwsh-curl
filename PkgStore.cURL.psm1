@@ -18,7 +18,7 @@ function Get-WebResource() {
     Write-Error -Message "'curl.exe' not found!" -ErrorAction "Stop"
   }
 
-  ForEach ( ${URL} in "${URLs}" ) {
+  ForEach ( ${URL} in ${URLs} ) {
     ${CMD} = @( "-L", "-O", "${URL}" )
     & "${cURL}" ${CMD}
   }
