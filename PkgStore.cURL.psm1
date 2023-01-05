@@ -8,7 +8,7 @@ function Get-WebResource() {
 
   Param(
     [Parameter(Mandatory)]
-    [Alias('URL', 'U')]
+    [Alias('U')]
     [string[]]${URLs}
   )
 
@@ -18,8 +18,8 @@ function Get-WebResource() {
     Write-Error -Message "'curl.exe' not found!" -ErrorAction "Stop"
   }
 
-  ForEach ( ${URL} in ${URLs} ) {
-    ${CMD} = @( "-L", "-O", "${URL}" )
+  ForEach ( ${U} in ${URLs} ) {
+    ${CMD} = @( "-L", "-O", "${U}" )
     & "${cURL}" ${CMD}
   }
 }
