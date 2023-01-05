@@ -3,6 +3,9 @@ function Get-WebResource() {
     .SYNOPSIS
 
     .DESCRIPTION
+
+    .PARAMETER URLs
+      Alias: '-U'.
   #>
 
   [CmdletBinding()]
