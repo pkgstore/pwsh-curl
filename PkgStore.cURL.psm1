@@ -34,7 +34,7 @@ function Get-WebResource() {
   }
 
   ForEach ( ${U} in ${URLs} ) {
-    ${CMD} = @( "-L", "-O", "--cacert ${CA}", "${U}" )
+    ${CMD} = @( "--cacert ${CA}", "-L", "-O", "${U}" )
     & "${cURL}" ${CMD}
   }
 }
