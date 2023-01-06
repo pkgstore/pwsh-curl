@@ -3,5 +3,5 @@
 ## Install
 
 ```powershell
-Install-PSM -Names 'cURL'
+Install-PSM -N 'cURL'
 ```
