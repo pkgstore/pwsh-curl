@@ -1,11 +1,21 @@
 function Get-WebResource() {
   <#
     .SYNOPSIS
+      Downloading web resources with cURL.
 
     .DESCRIPTION
 
     .PARAMETER URLs
       Alias: '-U'.
+
+    .EXAMPLE
+      Get-WebResource -U 'https://mirror.yandex.ru/debian-cd/current/amd64/iso-cd/SHA256SUMS'
+
+    .LINK
+      Package Store: https://github.com/pkgstore
+
+    .NOTES
+      Author: Kitsune Solar <mail@kitsune.solar>
   #>
 
   [CmdletBinding()]
