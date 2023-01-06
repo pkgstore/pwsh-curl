@@ -5,7 +5,7 @@
   Author = 'Kitsune Solar'
   CompanyName = 'v77 Development'
   Copyright = '(c) 2023 v77 Development. All rights reserved.'
-  Description = ''
+  Description = 'PowerShell module for cURL.'
   PowerShellVersion = '7.1'
   FunctionsToExport = @('Get-WebResource')
   CmdletsToExport = @()
