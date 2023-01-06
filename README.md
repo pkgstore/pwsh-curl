@@ -1,4 +1,4 @@
-# PowerShell cURL Module
+# PowerShell "cURL" Module
 
 ## Install
 
