@@ -27,13 +27,14 @@ function Get-WebResource() {
   )
 
   ${cURL} = "${PSScriptRoot}\curl.exe"
+  ${CA} = "${PSScriptRoot}\curl-ca-bundle.crt"
 
   if ( -not ( Test-Path -Path "${cURL}" -PathType "Leaf" ) ) {
     Write-Error -Message "'curl.exe' not found!" -ErrorAction "Stop"
   }
 
   ForEach ( ${U} in ${URLs} ) {
-    ${CMD} = @( "-L", "-O", "${U}" )
+    ${CMD} = @( "-L", "-O", "--cacert ${CA}", "${U}" )
     & "${cURL}" ${CMD}
   }
 }
