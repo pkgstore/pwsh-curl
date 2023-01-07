@@ -26,14 +26,19 @@ function Get-WebResource() {
     [string[]]${URLs}
   )
 
+  # cURL executable file.
   ${APP} = "${PSScriptRoot}\App\curl.exe"
 
+  # Checking if a 'curl.exe' exist.
   if ( -not ( Test-Path -Path "${APP}" -PathType "Leaf" ) ) {
     Write-Error -Message "'curl.exe' not found!" -ErrorAction "Stop"
   }
 
   ForEach ( ${U} in ${URLs} ) {
+    # Composing a app command.
     ${CMD} = @( "-L", "-O", "${U}" )
+
+    # Running a app.
     & "${APP}" ${CMD}
   }
 }
