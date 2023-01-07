@@ -7,7 +7,13 @@
   Copyright = '(c) 2023 v77 Development. All rights reserved.'
   Description = 'PowerShell module for cURL.'
   PowerShellVersion = '7.1'
+  RequiredModules = @('PkgStore.Kernel')
   FunctionsToExport = @('Get-WebResource')
-  CmdletsToExport = @()
-  AliasesToExport = @()
+  PrivateData = @{
+    PSData = @{
+      Tags = @('pwsh', 'curl')
+      LicenseUri = 'https://github.com/pkgstore/pwsh-curl/blob/main/LICENSE'
+      ProjectUri = 'https://github.com/pkgstore/pwsh-curl'
+    }
+  }
 }
