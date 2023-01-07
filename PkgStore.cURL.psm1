@@ -31,7 +31,7 @@ function Get-WebResource() {
 
   # Checking if a 'curl.exe' exist.
   if ( -not ( Test-Path -Path "${APP}" -PathType "Leaf" ) ) {
-    Write-Error -Message "'curl.exe' not found!" -ErrorAction "Stop"
+    Write-Msg -T 'E' -M "'curl.exe' not found!" -A 'Stop'
   }
 
   ForEach ( ${U} in ${URLs} ) {
