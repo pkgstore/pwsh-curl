@@ -1,9 +1,9 @@
 function Get-WebResource() {
   <#
     .SYNOPSIS
-      Downloading web resources with cURL.
 
     .DESCRIPTION
+      Downloading web resources with cURL.
 
     .PARAMETER URLs
       Alias: '-U'.
