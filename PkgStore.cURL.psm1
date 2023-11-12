@@ -6,7 +6,7 @@
   .COMPANYNAME  iHub.TO
   .COPYRIGHT    2023 Kitsune Solar. All rights reserved.
   .LICENSEURI   https://github.com/pkgstore/pwsh-curl/blob/main/LICENSE
-  .PROJECTURI
+  .PROJECTURI   https://github.com/pkgstore/pwsh-curl
 #>
 
 $App = @('curl.exe', 'curl-ca-bundle.crt', 'libcurl-x64.def', 'libcurl-x64.dll')
@@ -22,12 +22,12 @@ function Start-cURLDownload() {
   #>
 
   Param(
-    [Parameter(Mandatory)][Alias('U')][string[]]$P_URLs
+    [Parameter(Mandatory)][Alias('I')][string[]]$P_In
   )
 
   Test-App
 
-  $P_URLs | ForEach-Object {
+  $P_In | ForEach-Object {
     # Composing a app command.
     $Param = @( '-L', '-O', "${_}" )
 
