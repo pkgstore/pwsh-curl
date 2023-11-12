@@ -9,12 +9,12 @@
   .PROJECTURI
 #>
 
-$cURL = @('curl.exe', 'curl-ca-bundle.crt', 'libcurl-x64.def', 'libcurl-x64.dll')
-$cURLExe = @{LiteralPath = "${PSScriptRoot}"; Filter = "$($cURL[0])"; Recurse = $true; File = $true}
-$cURLExe = ((Get-ChildItem @cURLExe) | Select-Object -First 1)
+$App = @('curl.exe', 'curl-ca-bundle.crt', 'libcurl-x64.def', 'libcurl-x64.dll')
+$AppExe = @{LiteralPath = "${PSScriptRoot}"; Filter = "$($App[0])"; Recurse = $true; File = $true}
+$AppExe = ((Get-ChildItem @AppExe) | Select-Object -First 1)
 $NL = "$([Environment]::NewLine)"
 
-function Start-cURL() {
+function Start-cURLDownload() {
   <#
     .SYNOPSIS
 
@@ -22,29 +22,35 @@ function Start-cURL() {
   #>
 
   Param(
-    [Parameter(Mandatory)][Alias('U')][string[]]$URLs
+    [Parameter(Mandatory)][Alias('U')][string[]]$P_URLs
   )
 
-  Test-cURL
+  Test-App
 
-  $URLs | ForEach-Object {
+  $P_URLs | ForEach-Object {
     # Composing a app command.
-    $Params = @( '-L', '-O', "${_}" )
+    $Param = @( '-L', '-O', "${_}" )
 
     # Running a app.
-    & "${cURLExe}" $Params
+    & "${AppExe}" $Param
   }
 }
 
-function Test-cURL {
+function Test-App {
+  <#
+    .SYNOPSIS
+
+    .DESCRIPTION
+  #>
+
   # Getting 'curl.exe' directory.
-  $D_App = "$($cURLExe.DirectoryName)"
+  $Dir = "$($AppExe.DirectoryName)"
 
   # Checking the location of files.
-  $cURL | ForEach-Object {
-    if (-not (Test-Data -T 'F' -P "${D_App}\${_}")) {
+  $App | ForEach-Object {
+    if (-not (Test-Data -T 'F' -P "${Dir}\${_}")) {
       Write-Msg -T 'W' -A 'Stop' -M ("'${_}' not found!${NL}${NL}" +
-      "1. Download cURL from 'https://curl.se/windows/'.${NL}" +
+      "1. Download '${_}' from 'https://curl.se/windows/'.${NL}" +
       "2. Extract all the contents of the archive into a directory '${PSScriptRoot}'.")
     }
   }
