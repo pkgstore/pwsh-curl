@@ -22,21 +22,22 @@ function Start-cURLDownload() {
   #>
 
   Param(
-    [Parameter(Mandatory)][Alias('I')][string[]]$P_In
+    [Parameter(Mandatory)][Alias('URL')][string[]]$P_URL
   )
 
-  Test-App
+  # Checking cURL location.
+  Test-cURL
 
-  $P_In | ForEach-Object {
-    # Composing a app command.
-    $Param = @( '-L', '-O', "${_}" )
+  $P_URL | ForEach-Object {
+    $Param = @('--location')      # If the server reports that the requested page has moved to a different location.
+    $Param += @('--remote-name')  # Write output to a local file named like the remote file we get.
+    $Param += @("${_}")           # Input URL.
 
-    # Running a app.
     & "${AppExe}" $Param
   }
 }
 
-function Test-App {
+function Test-cURL {
   <#
     .SYNOPSIS
 
