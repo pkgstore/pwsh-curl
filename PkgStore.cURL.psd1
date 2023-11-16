@@ -8,7 +8,6 @@
   Description = 'PowerShell module for cURL.'
   PowerShellVersion = '7.2'
   RequiredModules = @('PkgStore.Kernel')
-  FunctionsToExport = @('Start-cURLDownload')
   PrivateData = @{
     PSData = @{
       Tags = @('pwsh', 'curl')
