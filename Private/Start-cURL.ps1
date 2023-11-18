@@ -6,10 +6,10 @@ function Start-cURL {
   #>
 
   Param(
-    [Alias('AD')][string[]]$AppData = @('curl.exe', 'curl-ca-bundle.crt', 'libcurl-x64.def', 'libcurl-x64.dll')
+    [string[]]$AppData = @('curl.exe', 'curl-ca-bundle.crt', 'libcurl-x64.def', 'libcurl-x64.dll')
   )
 
-  $AppPath = (Split-Path -Path "${PSScriptRoot}" -Parent)
+  $AppPath = (Split-Path "${PSScriptRoot}" -Parent)
   $App = @{LiteralPath = "${AppPath}"; Filter = "$($AppData[0])"; Recurse = $true; File = $true}
   $App = ((Get-ChildItem @App) | Select-Object -First 1)
   $NL = [Environment]::NewLine
