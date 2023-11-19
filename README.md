@@ -5,7 +5,7 @@ PowerShell module for working with cURL.
 ## Install
 
 ```powershell
-Install-CustomModule -Name 'cURL' -GitHubPath 'pkgstore/pwsh-curl'
+Install-CustomModule -N 'cURL' -GHP 'pkgstore/pwsh-curl'
 ```
 
 ## Syntax
