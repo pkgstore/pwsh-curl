@@ -5,7 +5,7 @@ function Start-cURLDownload() {
     .DESCRIPTION
   #>
 
-  Param(
+  param(
     [Parameter(Mandatory)][Alias('URL')][string[]]$URL
   )
 

@@ -5,7 +5,7 @@ function Start-cURL {
     .DESCRIPTION
   #>
 
-  Param(
+  param(
     [string[]]$AppData = @('curl.exe', 'curl-ca-bundle.crt', 'libcurl-x64.def', 'libcurl-x64.dll')
   )
 
