@@ -1,8 +1,10 @@
 function Start-cURL {
   <#
     .SYNOPSIS
+    Running cURL.
 
     .DESCRIPTION
+    Checking the location of the program files and launching the program.
   #>
 
   param(
