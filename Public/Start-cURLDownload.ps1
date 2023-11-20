@@ -14,7 +14,7 @@ function Start-cURLDownload() {
   #>
 
   param(
-    [Parameter(Mandatory)][Alias('URL')][string[]]$URL
+    [Parameter(Mandatory)][Alias('U')][string[]]$URL
   )
 
   $URL | ForEach-Object {
